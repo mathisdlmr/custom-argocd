@@ -1,0 +1,19 @@
+diff --git a/ui/src/app/applications/components/application-details/application-details.tsx b/ui/src/app/applications/components/application-details/application-detai>
+index c141b3efe..b71bd19c7 100644
+--- a/ui/src/app/applications/components/application-details/application-details.tsx
++++ b/ui/src/app/applications/components/application-details/application-details.tsx
+@@ -880,6 +880,14 @@ Are you sure you want to disable auto-sync and rollback application '${props.mat
+                                                     title: isApplication ? 'Applications' : 'ApplicationSets',
+                                                     path: isApplication ? '/applications' : '/applicationsets'
+                                                 },
++                                                ...(application.metadata.labels && 'argocd.argoproj.io/instance' in application.metadata.labels
++                                                    ? [
++                                                          {
++                                                              title: application.metadata.labels['argocd.argoproj.io/instance'],
++                                                              path: `/applications/${application.metadata.labels['argocd.argoproj.io/instance']}`
++                                                          }
++                                                      ]
++                                                    : []),
+                                                 {title: <ApplicationsDetailsAppDropdown appName={props.match.params.name} objectListKind={objectListKind} />}
+                                             ],
+                                             actionMenu: {
