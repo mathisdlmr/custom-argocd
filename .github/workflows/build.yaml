@@ -8,11 +8,11 @@ on:
       argocd_version:
         description: "Argo CD version to build"
         required: true
-        default: "v3.3.3"
+        default: "v3.5.5"
         type: string
 
 env:
-  ARGOCD_VERSION: ${{ github.event.inputs.argocd_version || 'v3.3.3' }}
+  ARGOCD_VERSION: ${{ github.event.inputs.argocd_version || 'v3.5.5' }}
 
 jobs:
   build:
