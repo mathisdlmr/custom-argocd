@@ -44,6 +44,27 @@ La GitHub Action `.github/workflows/build.yml` :
 3. Build l'image Docker
 4. Pousse vers GHCR : `ghcr.io/<owner>/argocd:<version>`
 
+## Pourquoi pas Renovate ?
+
+Pour une raison simple : on a aucune certitiude que le patch s'appliquera toujours aussi bien sur la nouvelle version de l'UI ArgoCD...
+
+J'ai donc décidé de laisser le bump de versions manuel.
+
+## Débug
+
+Si le patch ne fonctionne pas, on doit gérer ça à la main
+```sh
+cd ../
+git clone git@github.com:argoproj/argo-cd.git
+code ui/src/app/applications/components/application-details/application-details.tsx
+read -p "Appuyez sur entrée une fois les changes terminées sur ArgoCD"
+read -p "Sûr ?"
+git diff --cached > ../custom-argocd/breadcrumbs-application-tree.patch
+git add breadcrumbs-application-tree.patch
+git commit -m "Ajout du breadcrumb à l'application parente"
+git push
+```
+
 ## Stack
 
 `ArgoCD` · `TypeScript` · `React` · `Docker` · `GitHub Actions`

@@ -1,11 +1,11 @@
 diff --git a/ui/src/app/applications/components/application-details/application-details.tsx b/ui/src/app/applications/components/application-details/application-details.tsx
-index 1234567..89abcdef 100644
+index 57aa639..6d0367c 100644
 --- a/ui/src/app/applications/components/application-details/application-details.tsx
 +++ b/ui/src/app/applications/components/application-details/application-details.tsx
-@@ -800,6 +800,14 @@
-                                         toolbar={{
-                                             breadcrumbs: [
-                                                 {title: 'Applications', path: '/applications'},
+@@ -926,6 +926,14 @@ Are you sure you want to disable auto-sync and rollback application '${props.mat
+                                                     title: isApplication ? 'Applications' : 'ApplicationSets',
+                                                     path: isApplication ? '/applications' : '/applicationsets'
+                                                 },
 +                                                ...(application.metadata.labels && 'argocd.argoproj.io/instance' in application.metadata.labels
 +                                                    ? [
 +                                                          {
