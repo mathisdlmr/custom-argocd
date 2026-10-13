@@ -23,7 +23,7 @@ L'image Docker patchée est automatiquement construite et publiée sur GHCR via 
 global:
   image:
     repository: ghcr.io/mathisdlmr/argocd
-    tag: v3.3.3
+    tag: v3.5.5
 ```
 
 ## Build manuel
@@ -31,7 +31,7 @@ global:
 ```bash
 git clone https://github.com/argoproj/argo-cd.git
 cd argo-cd
-git checkout v3.3.3
+git checkout v3.5.5
 git apply < ../breadcrumbs-application-tree.patch
 docker build -t custom-argocd .
 ```
